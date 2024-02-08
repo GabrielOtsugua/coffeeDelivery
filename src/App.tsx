@@ -1,9 +1,9 @@
-import { AppContainer } from "./App.styles";
+import { Router } from "./Router";
 
 export function App() {
   return (
-    <AppContainer>
-      <p>Hello World</p>
-    </AppContainer>
+    <>
+      <Router />
+    </>
   );
 }
