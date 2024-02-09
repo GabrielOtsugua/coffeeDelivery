@@ -75,35 +75,6 @@ export const Box2 = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 0.25rem;
-  }
-
-  > div input {
-  }
-`;
-
-export const Count = styled.div`
-  display: flex;
-  margin-right: 0.5rem;
-  background-color: ${(props) => props.theme.button};
-  border-radius: 4px;
-
-  button {
-    width: 1.25rem;
-    height: 2rem;
-    border: 0;
-    border-radius: 4px;
-    background-color: ${(props) => props.theme.button};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1rem;
-    height: 2rem;
-    font-size: small;
+    margin-left: 0.25rem;
   }
 `;

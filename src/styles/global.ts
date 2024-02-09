@@ -9,10 +9,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${(props) => props.theme.background};
-    color: ${(props) => props.theme.text};
   }
 
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
+    color: ${(props) => props.theme.text};
   }
 `;

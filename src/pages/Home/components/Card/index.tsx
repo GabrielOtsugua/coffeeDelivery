@@ -1,6 +1,7 @@
-import { Box1, Box2, CardContainer, Count } from "./style";
+import { Box1, Box2, CardContainer } from "./style";
 import ExpressoTradicional from "../../../../assets/ExpressoTradicional.png";
-import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
+import { ShoppingCart } from "@phosphor-icons/react";
+import { Counter } from "../../../../components/Counter";
 
 export function Card() {
   return (
@@ -21,15 +22,8 @@ export function Card() {
         </span>
 
         <div>
-          <Count>
-            <button>
-              <Minus size={12} />
-            </button>
-            <p>0</p>
-            <button>
-              <Plus size={12} />
-            </button>
-          </Count>
+          <Counter />
+
           <span>
             <ShoppingCart size={16} weight="fill" />
           </span>
