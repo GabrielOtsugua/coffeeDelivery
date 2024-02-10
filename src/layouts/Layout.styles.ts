@@ -7,6 +7,18 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6rem;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+
+  @media (max-width: 640px) {
+    width: 90%;
+  }
+
+  @media (min-width: 1280px) {
+    width: 64rem;
+  }
 `;
 
 export const Header = styled.header`

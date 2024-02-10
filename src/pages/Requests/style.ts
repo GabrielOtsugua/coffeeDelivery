@@ -19,6 +19,11 @@ export const Container = styled.div`
     }
   }
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+
   aside {
     position: relative;
     background-color: ${(props) => props.theme.card};
@@ -59,6 +64,10 @@ export const Box1 = styled.div`
 
   > small {
     margin-left: 1.5rem;
+
+    @media (max-width: 1024px) {
+      margin-left: 0;
+    }
   }
 `;
 
@@ -81,6 +90,10 @@ export const Box2 = styled.div`
 
   > small {
     margin-left: 1.5rem;
+
+    @media (max-width: 1024px) {
+      margin-left: 0;
+    }
   }
 `;
 

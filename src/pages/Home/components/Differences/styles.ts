@@ -11,6 +11,10 @@ export const BoxContainer = styled.div`
     gap: 0.5rem;
     align-items: center;
   }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Box1 = styled.div`
@@ -23,6 +27,10 @@ export const Box1 = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: 1rem;
   }
 `;
 
@@ -37,6 +45,10 @@ export const Box2 = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: 640px) {
+    margin-left: 2rem;
+  }
 `;
 
 export const Box3 = styled.div`
@@ -50,6 +62,10 @@ export const Box3 = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: 640px) {
+    margin-left: 3rem;
+  }
 `;
 
 export const Box4 = styled.div`
@@ -62,5 +78,9 @@ export const Box4 = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: 4rem;
   }
 `;

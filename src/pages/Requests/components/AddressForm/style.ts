@@ -17,6 +17,10 @@ export const AddressContainer = styled.div`
 
 export const ZipcodeInput = styled.input`
   width: 30%;
+
+  @media (max-width: 640px) {
+    width: 50%;
+  }
 `;
 
 export const StreetInput = styled.input`
@@ -40,8 +44,16 @@ export const NeighborhoodInput = styled.input`
 export const CityInput = styled.input`
   width: 56%;
   margin-right: 2%;
+
+  @media (max-width: 640px) {
+    width: 50%;
+  }
 `;
 
 export const UFInput = styled.input`
   width: 10%;
+
+  @media (max-width: 640px) {
+    width: 16%;
+  }
 `;

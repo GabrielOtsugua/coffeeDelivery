@@ -16,11 +16,20 @@ export const PayMethodContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: baseline;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
   }
 
   > button > span {
     color: ${(props) => props.theme.purple};
     margin-right: -8px;
     display: flex;
+  }
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 `;
