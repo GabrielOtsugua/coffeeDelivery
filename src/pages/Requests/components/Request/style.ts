@@ -48,6 +48,7 @@ export const Box1 = styled.div`
     align-items: center;
     padding: 0.5rem;
     background-color: ${(props) => props.theme.button};
+    cursor: pointer;
   }
 
   .trash {

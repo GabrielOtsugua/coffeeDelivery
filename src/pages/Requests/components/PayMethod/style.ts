@@ -16,6 +16,7 @@ export const PayMethodContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: baseline;
+    cursor: pointer;
 
     @media (max-width: 640px) {
       width: 100%;

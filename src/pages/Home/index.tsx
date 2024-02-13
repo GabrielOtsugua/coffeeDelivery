@@ -2,6 +2,7 @@ import Imagem from "../../assets/Imagem.png";
 import { Card } from "./components/Card";
 import { ArticleContainer, Box1, SectionContainer } from "./style";
 import { Differences } from "./components/Differences";
+import { coffeeData } from "../../data/data";
 
 export function Home() {
   return (
@@ -28,10 +29,18 @@ export function Home() {
         <h2>Nossos cafés</h2>
 
         <div>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {coffeeData.map((item) => (
+            <Card
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              badges={item.badges}
+              type={item.type}
+              info={item.info}
+              price={item.price}
+              amount={item.amount}
+            />
+          ))}
         </div>
       </SectionContainer>
     </>

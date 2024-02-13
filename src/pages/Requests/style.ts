@@ -107,7 +107,7 @@ export const Box3 = styled.div`
     font-size: small;
   }
 
-  > button {
+  button {
     width: 100%;
     border: 0;
     border-radius: 4px;
@@ -116,5 +116,6 @@ export const Box3 = styled.div`
     font-size: x-small;
     padding: 0.75rem;
     margin-top: 1rem;
+    cursor: pointer;
   }
 `;

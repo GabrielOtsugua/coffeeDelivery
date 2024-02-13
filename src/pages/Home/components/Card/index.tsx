@@ -1,30 +1,45 @@
 import { Box1, Box2, CardContainer } from "./style";
-import ExpressoTradicional from "../../../../assets/ExpressoTradicional.png";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { Counter } from "../../../../components/Counter";
+import { useContext } from "react";
+import { CoffeeContext } from "../../../../contexts/CoffeeContext";
 
-export function Card() {
+interface CardProps {
+  id: string;
+  image: string;
+  badges: string[];
+  type: string;
+  info: string;
+  price: number;
+  amount: number;
+}
+
+export function Card(props: CardProps) {
+  const { cartListUpdate } = useContext(CoffeeContext);
+
   return (
     <CardContainer>
       <figcaption>
-        <img src={ExpressoTradicional} alt="" />
+        <img src={props.image} alt="" />
       </figcaption>
 
       <Box1>
-        <span>TRADICIONAL</span>
-        <h4>Expresso Tradicional</h4>
-        <p>O tradicional café feito com água quente e grãos moidos</p>
+        {props.badges.map((item) => (
+          <span>{item}</span>
+        ))}
+        <h4>{props.type}</h4>
+        <p>{props.info}</p>
       </Box1>
 
       <Box2>
         <span>
-          R$ <p>9,90</p>
+          R$ <p>{props.price}0</p>
         </span>
 
         <div>
-          <Counter />
+          <Counter amount={props.amount} />
 
-          <span>
+          <span onClick={() => cartListUpdate(props.id)}>
             <ShoppingCart size={16} weight="fill" />
           </span>
         </div>

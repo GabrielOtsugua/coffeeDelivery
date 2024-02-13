@@ -1,23 +1,29 @@
 import { Trash } from "@phosphor-icons/react";
-import ExpressoTradicional from "../../../../assets/ExpressoTradicional.png";
 import { Counter } from "../../../../components/Counter";
 import { Box1, RequestContainer } from "./style";
 
-export function Request() {
+interface RequestProps {
+  image: string;
+  type: string;
+  price: number;
+  amount: number;
+}
+
+export function Request(props: RequestProps) {
   return (
     <RequestContainer>
       <figure>
-        <img src={ExpressoTradicional} />
+        <img src={props.image} />
       </figure>
 
       <Box1>
         <div className="details">
-          <p>Expresso Tradicional</p>
-          <h4>9,90</h4>
+          <p>{props.type}</p>
+          <h4>{props.price}0</h4>
         </div>
 
         <div className="buttons">
-          <Counter />
+          <Counter amount={props.amount} />
           <button>
             <Trash size={12} className="trash" />
             Remover

@@ -29,6 +29,7 @@ export const Box1 = styled.div`
     color: ${(props) => props.theme.yellowDark};
     padding: 0.25rem;
     border-radius: 16px;
+    margin-right: 4px;
   }
 
   > h4 {
@@ -76,5 +77,6 @@ export const Box2 = styled.div`
     justify-content: center;
     border-radius: 0.25rem;
     margin-left: 0.25rem;
+    cursor: pointer;
   }
 `;
