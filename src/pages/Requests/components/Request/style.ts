@@ -41,14 +41,16 @@ export const Box1 = styled.div`
     gap: 0.5rem;
   }
 
-  button {
-    border: 0;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: ${(props) => props.theme.button};
-    cursor: pointer;
+  > div {
+    > button {
+      border: 0;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      background-color: ${(props) => props.theme.button};
+      cursor: pointer;
+    }
   }
 
   .trash {

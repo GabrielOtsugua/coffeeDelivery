@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const BoxContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 1rem;
-  font-size: 11px;
+  font-size: small;
 
   div {
     display: flex;
@@ -14,6 +14,10 @@ export const BoxContainer = styled.div`
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1.5fr;
   }
 `;
 
@@ -32,6 +36,9 @@ export const Box1 = styled.div`
   @media (max-width: 640px) {
     margin-left: 1rem;
   }
+
+  @media (min-width: 1280px) {
+  }
 `;
 
 export const Box2 = styled.div`
@@ -48,6 +55,9 @@ export const Box2 = styled.div`
 
   @media (max-width: 640px) {
     margin-left: 2rem;
+  }
+
+  @media (min-width: 1280px) {
   }
 `;
 
@@ -66,6 +76,9 @@ export const Box3 = styled.div`
   @media (max-width: 640px) {
     margin-left: 3rem;
   }
+
+  @media (min-width: 1280px) {
+  }
 `;
 
 export const Box4 = styled.div`
@@ -82,5 +95,8 @@ export const Box4 = styled.div`
 
   @media (max-width: 640px) {
     margin-left: 4rem;
+  }
+
+  @media (min-width: 1280px) {
   }
 `;

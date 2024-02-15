@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const LayoutContainer = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  padding: 1rem 0 4rem 0;
+  padding: 2rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -58,4 +58,20 @@ export const Box2 = styled.div`
   border-radius: 4px;
   display: flex;
   align-items: center;
+  position: relative;
+
+  .amount {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: ${(props) => props.theme.yellowDark};
+    color: ${(props) => props.theme.white};
+    font-size: x-small;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;

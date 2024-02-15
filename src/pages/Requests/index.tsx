@@ -6,11 +6,20 @@ import { CurrencyDollar, MapPinLine } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CoffeeContext } from "../../contexts/CoffeeContext";
+import { EmptyCart } from "./components/EmptyCart";
 
 export function Requests() {
-  const { cartList } = useContext(CoffeeContext);
+  const { cartList, itensTotal } = useContext(CoffeeContext);
 
-  return (
+  const totalItensFormat = itensTotal.toFixed(2).toString().replace(".", ",");
+  const totalFormat = (itensTotal + 3.5)
+    .toFixed(2)
+    .toString()
+    .replace(".", ",");
+
+  return cartList.length === 0 ? (
+    <EmptyCart />
+  ) : (
     <Container>
       <main>
         <h5 className="titleMain">Complete seu pedido</h5>
@@ -44,6 +53,7 @@ export function Requests() {
         <div className="requestContainer">
           {cartList.map((item) => (
             <Request
+              id={item.id}
               image={item.image}
               type={item.type}
               price={item.price}
@@ -55,7 +65,7 @@ export function Requests() {
         <Box3>
           <div>
             <small>Total de itens</small>
-            <p>29,70</p>
+            <p>{totalItensFormat}</p>
           </div>
 
           <div>
@@ -65,7 +75,7 @@ export function Requests() {
 
           <div>
             <h3>Total</h3>
-            <h3>R$ 33,20</h3>
+            <h3>R$ {totalFormat}</h3>
           </div>
 
           <Link to="/finished">

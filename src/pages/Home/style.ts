@@ -14,12 +14,12 @@ export const ArticleContainer = styled.div`
 
     @media (max-width: 768px) {
       justify-content: center;
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
   }
 
   figcaption > img {
-    width: 22rem;
+    width: 25rem;
 
     @media (max-width: 640px) {
       width: 18rem;
@@ -35,6 +35,15 @@ export const Box1 = styled.div`
   h1 {
     color: ${(props) => props.theme.title};
     margin-bottom: 1rem;
+    font-size: 2.25rem;
+
+    @media (max-width: 640px) {
+      font-size: 1.75rem;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 2.5rem;
+    }
   }
 
   p {

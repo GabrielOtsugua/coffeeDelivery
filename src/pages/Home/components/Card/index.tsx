@@ -1,6 +1,5 @@
 import { Box1, Box2, CardContainer } from "./style";
 import { ShoppingCart } from "@phosphor-icons/react";
-import { Counter } from "../../../../components/Counter";
 import { useContext } from "react";
 import { CoffeeContext } from "../../../../contexts/CoffeeContext";
 
@@ -15,7 +14,11 @@ interface CardProps {
 }
 
 export function Card(props: CardProps) {
-  const { cartListUpdate } = useContext(CoffeeContext);
+  const { cartList, cartListUpdate } = useContext(CoffeeContext);
+
+  const priceFormat = props.price.toFixed(2).toString().replace(".", ",");
+
+  const example = cartList.map((item) => item.id === props.id && item.amount);
 
   return (
     <CardContainer>
@@ -33,11 +36,11 @@ export function Card(props: CardProps) {
 
       <Box2>
         <span>
-          R$ <p>{props.price}0</p>
+          R$ <p>{priceFormat}</p>
         </span>
 
         <div>
-          <Counter amount={props.amount} />
+          <strong>{example}</strong>
 
           <span onClick={() => cartListUpdate(props.id)}>
             <ShoppingCart size={16} weight="fill" />

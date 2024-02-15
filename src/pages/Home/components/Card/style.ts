@@ -65,6 +65,18 @@ export const Box2 = styled.div`
 
   > div {
     display: flex;
+
+    > strong {
+      width: 2rem;
+      height: 2rem;
+      background-color: ${(props) => props.theme.button};
+      color: ${(props) => props.theme.purpleDark};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      font-size: small;
+    }
   }
 
   > div > span {
