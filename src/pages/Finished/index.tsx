@@ -1,8 +1,12 @@
 import { DetailsBox, FinishedContainer } from "./style";
 import Ilustração from "../../assets/Ilustração.png";
 import { MapPin, Timer, CurrencyDollar } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { CoffeeContext } from "../../contexts/CoffeeContext";
 
 export function Finished() {
+  const { formData } = useContext(CoffeeContext);
+
   return (
     <FinishedContainer>
       <main>
@@ -17,9 +21,14 @@ export function Finished() {
 
             <span>
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{" "}
+                <strong>
+                  {formData.street}, {formData.number}
+                </strong>
               </p>
-              <small>Farrapos - Porto Alegre, RS</small>
+              <small>
+                {formData.neighborhood} - {formData.city}, {formData.UF}
+              </small>
             </span>
           </DetailsBox>
 
@@ -44,7 +53,7 @@ export function Finished() {
             <span>
               <p>Pagamento na entrega</p>
               <small>
-                <strong>Cartão de crédito</strong>
+                <strong>{formData.payMethod}</strong>
               </small>
             </span>
           </DetailsBox>

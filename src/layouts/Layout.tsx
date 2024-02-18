@@ -21,7 +21,7 @@ export function Layout() {
             <p>Porto Alegre, RS</p>
           </Box1>
 
-          <Link to="/requests">
+          <Link to={"/Requests"}>
             <Box2 title="Carrinho de compras">
               <span
                 title={`${cartListAmount} item(s) no carrinho`}

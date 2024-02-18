@@ -11,14 +11,29 @@ interface Coffee {
   amount: number;
 }
 
+interface FormData {
+  zipcode: number;
+  street: string;
+  number: number;
+  complement?: string;
+  neighborhood: string;
+  city: string;
+  UF: string;
+  payMethod?: string;
+}
+
 interface CoffeeContextType {
   cartList: Coffee[];
   itensTotal: number;
   cartListAmount: number;
+  formData: FormData;
   cartListUpdate: (id: string) => void;
   cartListDelete: (id: string) => void;
   decreaseAmount: (id: string) => void;
   increaseAmount: (id: string) => void;
+  getFormData: (data: FormData) => void;
+  definePayMethod: (payMethod: string) => void;
+  clearCartList: () => void;
 }
 
 interface ChildrenType {
@@ -29,7 +44,9 @@ export const CoffeeContext = createContext({} as CoffeeContextType);
 
 export function CoffeeContextProvider({ children }: ChildrenType) {
   // --- FUNÇÕES E ESTADOS ---
+
   const [cartList, setCartList] = useState<Coffee[]>([]);
+  const [formData, setFormData] = useState<FormData>({} as FormData);
 
   const itensTotal = cartList.reduce(
     (total, item) => total + item.price * item.amount,
@@ -81,16 +98,32 @@ export function CoffeeContextProvider({ children }: ChildrenType) {
     setCartList(coffeeIncreased);
   };
 
+  const getFormData = (data: FormData) => {
+    setFormData(data);
+  };
+
+  const definePayMethod = (payMethod: string) => {
+    setFormData({ ...formData, payMethod: payMethod });
+  };
+
+  const clearCartList = () => {
+    setCartList([]);
+  };
+
   return (
     <CoffeeContext.Provider
       value={{
         cartList,
         itensTotal,
         cartListAmount,
+        formData,
         cartListUpdate,
         cartListDelete,
         decreaseAmount,
         increaseAmount,
+        getFormData,
+        definePayMethod,
+        clearCartList,
       }}
     >
       {children}

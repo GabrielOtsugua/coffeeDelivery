@@ -119,3 +119,26 @@ export const Box3 = styled.div`
     cursor: pointer;
   }
 `;
+
+export const EmptyCartList = styled.div`
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div {
+    > figure {
+      text-align: center;
+    }
+
+    > h2 {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+`;

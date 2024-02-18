@@ -1,15 +1,18 @@
 import { PayMethod } from "./components/PayMethod";
 import { AddressForm } from "./components/AddressForm";
-import { Box1, Box2, Box3, Container } from "./style";
+import { Box1, Box2, Box3, Container, EmptyCartList } from "./style";
 import { Request } from "./components/Request";
-import { CurrencyDollar, MapPinLine } from "@phosphor-icons/react";
+import {
+  CurrencyDollar,
+  MapPinLine,
+  ShoppingCart,
+} from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CoffeeContext } from "../../contexts/CoffeeContext";
-import { EmptyCart } from "./components/EmptyCart";
 
 export function Requests() {
-  const { cartList, itensTotal } = useContext(CoffeeContext);
+  const { cartList, itensTotal, clearCartList } = useContext(CoffeeContext);
 
   const totalItensFormat = itensTotal.toFixed(2).toString().replace(".", ",");
   const totalFormat = (itensTotal + 3.5)
@@ -17,9 +20,7 @@ export function Requests() {
     .toString()
     .replace(".", ",");
 
-  return cartList.length === 0 ? (
-    <EmptyCart />
-  ) : (
+  return cartList.length > 0 ? (
     <Container>
       <main>
         <h5 className="titleMain">Complete seu pedido</h5>
@@ -79,10 +80,20 @@ export function Requests() {
           </div>
 
           <Link to="/finished">
-            <button>CONFIRMAR PEDIDO</button>
+            <button onClick={clearCartList}>CONFIRMAR PEDIDO</button>
           </Link>
         </Box3>
       </aside>
     </Container>
+  ) : (
+    <EmptyCartList>
+      <div>
+        <figure>
+          <ShoppingCart size={48} weight="fill" />
+        </figure>
+        <h2>Seu carrinho está vazio</h2>
+        <p>Para começar, adicione alguns itens do seu interesse</p>
+      </div>
+    </EmptyCartList>
   );
 }

@@ -8,7 +8,7 @@ export const PayMethodContainer = styled.div`
   > button {
     width: 32%;
     gap: 1rem;
-    border: 0;
+    border: 1px solid transparent;
     border-radius: 4px;
     background-color: ${(props) => props.theme.button};
     font-size: x-small;
@@ -17,6 +17,14 @@ export const PayMethodContainer = styled.div`
     align-items: center;
     justify-content: baseline;
     cursor: pointer;
+
+    &:active {
+      border-color: ${(props) => props.theme.purple};
+    }
+
+    &:focus {
+      background-color: ${(props) => props.theme.purpleLight};
+    }
 
     @media (max-width: 640px) {
       width: 100%;
