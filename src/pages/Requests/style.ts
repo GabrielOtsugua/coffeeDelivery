@@ -1,14 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+  }
+
+  .asideAnimation {
+    width: 100%;
+  }
 
   main {
     position: relative;
-    display: grid;
-    grid-template-rows: 18.5rem 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
     gap: 1rem;
 
     .titleMain {
@@ -17,19 +27,15 @@ export const Container = styled.div`
       left: 0;
       color: ${(props) => props.theme.title};
     }
-  }
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 6rem;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   aside {
     position: relative;
-    background-color: ${(props) => props.theme.card};
-    border-radius: 4px;
-    padding: 2rem;
-    align-self: baseline;
+    width: 40%;
 
     .requestContainer {
       display: flex;
@@ -43,10 +49,15 @@ export const Container = styled.div`
       left: 0;
       color: ${(props) => props.theme.title};
     }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
 
 export const Box1 = styled.div`
+  width: 100%;
   background-color: ${(props) => props.theme.card};
   border-radius: 4px;
   padding: 2rem;
@@ -69,9 +80,17 @@ export const Box1 = styled.div`
       margin-left: 0;
     }
   }
+
+  .errorsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    color: #ff6347;
+  }
 `;
 
 export const Box2 = styled.div`
+  width: 100%;
   background-color: ${(props) => props.theme.card};
   border-radius: 4px;
   padding: 2rem;
@@ -94,6 +113,11 @@ export const Box2 = styled.div`
     @media (max-width: 1024px) {
       margin-left: 0;
     }
+  }
+
+  .errorsContainer {
+    margin-top: 0.5rem;
+    color: #ff6347;
   }
 `;
 
@@ -141,4 +165,12 @@ export const EmptyCartList = styled.div`
       margin-top: 0.5rem;
     }
   }
+`;
+
+export const Orders = styled.div`
+  background-color: ${(props) => props.theme.card};
+  border-radius: 4px;
+  padding: 2rem;
+  align-self: baseline;
+  width: 100%;
 `;

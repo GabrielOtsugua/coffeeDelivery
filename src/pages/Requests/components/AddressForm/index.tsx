@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import {
   AddressContainer,
   CityInput,
@@ -9,28 +9,21 @@ import {
   UFInput,
   ZipcodeInput,
 } from "./style";
-import { useContext } from "react";
-import { CoffeeContext } from "../../../../contexts/CoffeeContext";
+import { FormData } from "../../../../interfaces";
 
-interface FormData {
-  zipcode: number;
-  street: string;
-  number: number;
-  complement?: string;
-  neighborhood: string;
-  city: string;
-  UF: string;
+interface AddressFormProps {
+  register: UseFormRegister<FormData>;
 }
 
-export function AddressForm() {
-  const { getFormData } = useContext(CoffeeContext);
-
-  const { register, handleSubmit } = useForm<FormData>();
-
+export function AddressForm({ register }: AddressFormProps) {
   return (
-    <AddressContainer onChange={handleSubmit(getFormData)}>
+    <AddressContainer>
       <div>
-        <ZipcodeInput {...register("zipcode")} type="text" placeholder="CEP" />
+        <ZipcodeInput
+          {...register("zipcode")}
+          type="number"
+          placeholder="CEP"
+        />
       </div>
 
       <div>
@@ -39,10 +32,11 @@ export function AddressForm() {
 
       <div className="optionalContainer">
         <NumberInput
-          {...register("number", { valueAsNumber: true })}
-          type="text"
+          {...register("number")}
+          type="number"
           placeholder="Número"
         />
+
         <ComplementInput
           {...register("complement")}
           type="text"
@@ -60,8 +54,15 @@ export function AddressForm() {
           type="text"
           placeholder="Bairro"
         />
+
         <CityInput {...register("city")} type="text" placeholder="Cidade" />
-        <UFInput {...register("UF")} type="text" placeholder="UF" />
+
+        <UFInput
+          {...register("UF")}
+          type="text"
+          placeholder="UF"
+          maxLength={2}
+        />
       </div>
     </AddressContainer>
   );

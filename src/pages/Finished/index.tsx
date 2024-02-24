@@ -3,68 +3,73 @@ import Ilustração from "../../assets/Ilustração.png";
 import { MapPin, Timer, CurrencyDollar } from "@phosphor-icons/react";
 import { useContext } from "react";
 import { CoffeeContext } from "../../contexts/CoffeeContext";
+import { Fade } from "react-awesome-reveal";
 
 export function Finished() {
   const { formData } = useContext(CoffeeContext);
 
   return (
-    <FinishedContainer>
-      <main>
-        <h2>Uhu! Pedido confirmado</h2>
-        <p>Agora é só aguardar que logo o café chegará até você</p>
+    <Fade>
+      <FinishedContainer>
+        <main>
+          <h2>Uhu! Pedido confirmado</h2>
+          <Fade cascade duration={100}>
+            Agora é só aguardar que logo o café chegará até você!
+          </Fade>
 
-        <div>
-          <DetailsBox>
-            <figure>
-              <MapPin size={12} weight="fill" />
-            </figure>
+          <section>
+            <DetailsBox>
+              <figure>
+                <MapPin size={12} weight="fill" />
+              </figure>
 
-            <span>
-              <p>
-                Entrega em{" "}
-                <strong>
-                  {formData.street}, {formData.number}
-                </strong>
-              </p>
-              <small>
-                {formData.neighborhood} - {formData.city}, {formData.UF}
-              </small>
-            </span>
-          </DetailsBox>
+              <span>
+                <p>
+                  Entrega em{" "}
+                  <strong>
+                    {formData?.street}, {formData?.number}
+                  </strong>
+                </p>
+                <small>
+                  {formData?.neighborhood} - {formData?.city}, {formData?.UF}
+                </small>
+              </span>
+            </DetailsBox>
 
-          <DetailsBox>
-            <figure className="yellow">
-              <Timer size={12} weight="fill" />
-            </figure>
+            <DetailsBox>
+              <figure className="yellow">
+                <Timer size={12} weight="fill" />
+              </figure>
 
-            <span>
-              <p>Previsão de entrega</p>
-              <small>
-                <strong>20 min - 30 min</strong>
-              </small>
-            </span>
-          </DetailsBox>
+              <span>
+                <p>Previsão de entrega</p>
+                <small>
+                  <strong>20 min - 30 min</strong>
+                </small>
+              </span>
+            </DetailsBox>
 
-          <DetailsBox>
-            <figure className="yellowDark">
-              <CurrencyDollar size={12} />
-            </figure>
+            <DetailsBox>
+              <figure className="yellowDark">
+                <CurrencyDollar size={12} />
+              </figure>
 
-            <span>
-              <p>Pagamento na entrega</p>
-              <small>
-                <strong>{formData.payMethod}</strong>
-              </small>
-            </span>
-          </DetailsBox>
-        </div>
-      </main>
+              <span>
+                <p>Pagamento na entrega</p>
+                <small>
+                  <strong>{formData?.payMethod}</strong>
+                </small>
+              </span>
+            </DetailsBox>
+          </section>
+        </main>
 
-      <aside>
-        <figure>
-          <img src={Ilustração} />
-        </figure>
-      </aside>
-    </FinishedContainer>
+        <aside>
+          <figure>
+            <img src={Ilustração} />
+          </figure>
+        </aside>
+      </FinishedContainer>
+    </Fade>
   );
 }

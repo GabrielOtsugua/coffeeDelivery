@@ -14,6 +14,7 @@ export const RequestContainer = styled.div`
 
   > figure > img {
     width: 3rem;
+    height: 3rem;
   }
 `;
 

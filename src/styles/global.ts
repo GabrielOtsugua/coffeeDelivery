@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     color: ${(props) => props.theme.text};
+    outline: none;
   }
 `;

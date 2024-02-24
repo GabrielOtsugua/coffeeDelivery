@@ -8,14 +8,14 @@ import { BrowserRouter } from "react-router-dom";
 export function App() {
   return (
     <>
-      <CoffeeContextProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <CoffeeContextProvider>
           <ThemeProvider theme={defaultTheme}>
             <Router />
             <GlobalStyle />
           </ThemeProvider>
-        </BrowserRouter>
-      </CoffeeContextProvider>
+        </CoffeeContextProvider>
+      </BrowserRouter>
     </>
   );
 }

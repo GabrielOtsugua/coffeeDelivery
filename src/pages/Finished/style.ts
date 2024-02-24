@@ -14,7 +14,8 @@ export const FinishedContainer = styled.div`
       margin-bottom: 2rem;
     }
 
-    > div {
+    > section {
+      margin-top: 2rem;
       padding: 2rem;
       display: flex;
       flex-direction: column;

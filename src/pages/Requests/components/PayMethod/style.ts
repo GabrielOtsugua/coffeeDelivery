@@ -5,6 +5,21 @@ export const PayMethodContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
+  > select {
+    width: 100%;
+    background-color: ${(props) => props.theme.button};
+    padding: 0.75rem;
+    border: 0;
+    border-radius: 0.25rem;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  > select > option {
+    color: ${(props) => props.theme.text};
+  }
+
   > button {
     width: 32%;
     gap: 1rem;

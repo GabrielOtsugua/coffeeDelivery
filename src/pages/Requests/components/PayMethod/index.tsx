@@ -1,33 +1,20 @@
-import { CreditCard, Money, QrCode } from "@phosphor-icons/react";
+import { FormData } from "../../../../interfaces";
 import { PayMethodContainer } from "./style";
-import { useContext } from "react";
-import { CoffeeContext } from "../../../../contexts/CoffeeContext";
+import { UseFormRegister } from "react-hook-form";
 
-export function PayMethod() {
-  const { definePayMethod } = useContext(CoffeeContext);
+interface PayMethodProps {
+  register: UseFormRegister<FormData>;
+}
 
+export function PayMethod({ register }: PayMethodProps) {
   return (
     <PayMethodContainer>
-      <button onClick={() => definePayMethod("Cartão de crédito")}>
-        <span>
-          <CreditCard size={12} />
-        </span>
-        CARTÃO DE CRÉDITO
-      </button>
-
-      <button onClick={() => definePayMethod("Dinheiro")}>
-        <span>
-          <Money size={12} />
-        </span>
-        DINHEIRO
-      </button>
-
-      <button onClick={() => definePayMethod("QR Code")}>
-        <span>
-          <QrCode size={12} />
-        </span>
-        QR CODE
-      </button>
+      <select {...register("payMethod")}>
+        <option value="">Selecione...</option>
+        <option value="Cartão de crédito">Cartão de crédito</option>
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="QR Code">QR Code</option>
+      </select>
     </PayMethodContainer>
   );
 }

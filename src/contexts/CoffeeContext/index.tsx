@@ -1,39 +1,18 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { coffeeData } from "../../data/data";
-
-interface Coffee {
-  id: string;
-  image: string;
-  badges: string[];
-  type: string;
-  info: string;
-  price: number;
-  amount: number;
-}
-
-interface FormData {
-  zipcode: number;
-  street: string;
-  number: number;
-  complement?: string;
-  neighborhood: string;
-  city: string;
-  UF: string;
-  payMethod?: string;
-}
+import { useNavigate } from "react-router-dom";
+import { Coffee, FormData } from "../../interfaces";
 
 interface CoffeeContextType {
   cartList: Coffee[];
   itensTotal: number;
   cartListAmount: number;
-  formData: FormData;
-  cartListUpdate: (id: string) => void;
+  formData: FormData | undefined;
+  cartListAdd: (id: string) => void;
   cartListDelete: (id: string) => void;
   decreaseAmount: (id: string) => void;
   increaseAmount: (id: string) => void;
   getFormData: (data: FormData) => void;
-  definePayMethod: (payMethod: string) => void;
-  clearCartList: () => void;
 }
 
 interface ChildrenType {
@@ -46,7 +25,9 @@ export function CoffeeContextProvider({ children }: ChildrenType) {
   // --- FUNÇÕES E ESTADOS ---
 
   const [cartList, setCartList] = useState<Coffee[]>([]);
-  const [formData, setFormData] = useState<FormData>({} as FormData);
+  const [formData, setFormData] = useState<FormData>();
+
+  const navigate = useNavigate();
 
   const itensTotal = cartList.reduce(
     (total, item) => total + item.price * item.amount,
@@ -58,7 +39,7 @@ export function CoffeeContextProvider({ children }: ChildrenType) {
     0
   );
 
-  const cartListUpdate = (id: string) => {
+  const cartListAdd = (id: string) => {
     const coffee = coffeeData.find((item) => item.id === id);
     const coffeAlredyExists = cartList.find((item) => item.id === id);
 
@@ -100,15 +81,22 @@ export function CoffeeContextProvider({ children }: ChildrenType) {
 
   const getFormData = (data: FormData) => {
     setFormData(data);
-  };
-
-  const definePayMethod = (payMethod: string) => {
-    setFormData({ ...formData, payMethod: payMethod });
-  };
-
-  const clearCartList = () => {
+    navigate("/finished");
     setCartList([]);
   };
+
+  // ATUALIZA O CARTLIST COM OS ITENS DO LOCALSTORAGE, AO ATUALIZAR A PAGINA
+  useEffect(() => {
+    const storedCartList = localStorage.getItem("cartList");
+    storedCartList && setCartList(JSON.parse(storedCartList));
+  }, []);
+
+  // DEFINE O LOCALSTORAGE, AO ATUALIZAR O CARTLIST
+  useEffect(() => {
+    cartList.length > 0
+      ? localStorage.setItem("cartList", JSON.stringify(cartList))
+      : localStorage.removeItem("cartList");
+  }, [cartList]);
 
   return (
     <CoffeeContext.Provider
@@ -117,13 +105,11 @@ export function CoffeeContextProvider({ children }: ChildrenType) {
         itensTotal,
         cartListAmount,
         formData,
-        cartListUpdate,
+        cartListAdd,
         cartListDelete,
         decreaseAmount,
         increaseAmount,
         getFormData,
-        definePayMethod,
-        clearCartList,
       }}
     >
       {children}
