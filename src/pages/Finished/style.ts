@@ -8,14 +8,25 @@ export const FinishedContainer = styled.div`
     > h2 {
       color: ${(props) => props.theme.yellowDark};
       margin-bottom: 0.5rem;
+      font-family: "Baloo 2";
+      font-size: 2rem;
+
+      @media (max-width: 684px) {
+        font-size: 1.8rem;
+        line-height: 1.5rem;
+      }
     }
 
-    > p {
-      margin-bottom: 2rem;
+    .now {
+      font-size: 1.1rem;
+
+      @media (max-width: 684px) {
+        font-size: 0.8rem;
+      }
     }
 
     > section {
-      margin-top: 2rem;
+      margin-top: 3rem;
       padding: 2rem;
       display: flex;
       flex-direction: column;

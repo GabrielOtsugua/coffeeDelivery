@@ -14,6 +14,12 @@ export const PayMethodContainer = styled.div`
     outline: none;
     cursor: pointer;
     appearance: none;
+    transition: 0.5s;
+    border: 1px solid ${(props) => props.theme.button};
+
+    &:focus {
+      border: 1px solid ${(props) => props.theme.purpleDark};
+    }
   }
 
   > select > option {

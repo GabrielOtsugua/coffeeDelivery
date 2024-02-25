@@ -36,9 +36,12 @@ export const Box1 = styled.div`
     color: ${(props) => props.theme.title};
     margin-bottom: 1rem;
     font-size: 2.25rem;
+    font-family: "Baloo 2";
+    line-height: 3rem;
 
     @media (max-width: 640px) {
       font-size: 1.75rem;
+      line-height: 2rem;
     }
 
     @media (min-width: 1280px) {
@@ -55,6 +58,7 @@ export const SectionContainer = styled.div`
   > h2 {
     color: ${(props) => props.theme.title};
     margin-bottom: 3rem;
+    font-family: "Baloo 2";
   }
 
   > div {

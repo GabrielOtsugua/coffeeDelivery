@@ -33,7 +33,6 @@ export function Requests() {
       <Container>
         <main>
           <Slide>
-            {/* <Slide> */}
             <Box1>
               <h5 className="titleMain">Complete seu pedido</h5>
 
@@ -72,13 +71,12 @@ export function Requests() {
 
               <PayMethod register={register} />
             </Box2>
-            {/* </Slide> */}
           </Slide>
         </main>
 
         <aside>
           <Fade>
-            <Slide direction="right">
+            <Slide direction="right" triggerOnce>
               <Orders>
                 <h5 className="titleAside">Cafés selecionados</h5>
 
@@ -128,7 +126,7 @@ export function Requests() {
           <figure>
             <ShoppingCart size={48} weight="fill" />
           </figure>
-          <h2>Seu carrinho está vazio</h2>
+          <h2>Seu carrinho está vazio...</h2>
           <p>Para começar, adicione alguns itens do seu interesse</p>
         </div>
       </EmptyCartList>

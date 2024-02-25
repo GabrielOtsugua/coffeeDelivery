@@ -19,6 +19,11 @@ export const AddressContainer = styled.form`
     border-radius: 4px;
     background-color: ${(props) => props.theme.input};
     font-size: small;
+    transition: 0.5s;
+
+    &:focus {
+      border: 1px solid ${(props) => props.theme.yellowDark};
+    }
   }
 
   .optionalContainer {

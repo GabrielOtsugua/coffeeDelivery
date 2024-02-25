@@ -12,6 +12,10 @@ export const BoxContainer = styled.div`
     align-items: center;
   }
 
+  p {
+    font-weight: 500;
+  }
+
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }

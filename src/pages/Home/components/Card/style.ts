@@ -34,8 +34,9 @@ export const Box1 = styled.div`
 
   > h4 {
     margin: 1rem 0 0.5rem 0;
-    font-size: 14px;
+    font-size: 1rem;
     color: ${(props) => props.theme.subtitle};
+    font-family: "Baloo 2";
   }
 
   > p {
@@ -55,10 +56,11 @@ export const Box2 = styled.div`
     display: flex;
     align-items: end;
     font-size: small;
+    font-family: "baloo 2";
   }
 
   > span p {
-    font-size: larger;
+    font-size: large;
     font-weight: bold;
     padding-left: 0.25rem;
   }
@@ -90,5 +92,13 @@ export const Box2 = styled.div`
     border-radius: 0.25rem;
     margin-left: 0.25rem;
     cursor: pointer;
+    user-select: none;
+
+    transition: 0.1s;
+
+    &:hover {
+      scale: 1.1;
+      background-color: ${(props) => props.theme.purple};
+    }
   }
 `;

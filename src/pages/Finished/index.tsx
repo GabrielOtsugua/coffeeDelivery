@@ -13,7 +13,7 @@ export function Finished() {
       <FinishedContainer>
         <main>
           <h2>Uhu! Pedido confirmado</h2>
-          <Fade cascade duration={100}>
+          <Fade cascade duration={100} className="now">
             Agora é só aguardar que logo o café chegará até você!
           </Fade>
 

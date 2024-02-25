@@ -27,7 +27,13 @@ export const Header = styled.header`
   align-items: center;
 
   img {
-    width: 4rem;
+    width: 5rem;
+    transition: 0.5s;
+
+    &:hover {
+      transition: 0.5s;
+      scale: 1.1;
+    }
   }
 
   > div {
@@ -46,7 +52,8 @@ export const Box1 = styled.div`
   border-radius: 4px;
 
   p {
-    font-size: x-small;
+    font-size: 0.7rem;
+    font-weight: 500;
     color: ${(props) => props.theme.purpleDark};
   }
 `;
@@ -59,6 +66,12 @@ export const Box2 = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  transition: 0.1s;
+
+  &:hover {
+    transition: 0.1s;
+    scale: 1.1;
+  }
 
   .amount {
     position: absolute;

@@ -26,6 +26,7 @@ export const Container = styled.div`
       top: -2rem;
       left: 0;
       color: ${(props) => props.theme.title};
+      font-family: "Baloo 2";
     }
 
     @media (max-width: 768px) {
@@ -48,6 +49,7 @@ export const Container = styled.div`
       top: -2rem;
       left: 0;
       color: ${(props) => props.theme.title};
+      font-family: "Baloo 2";
     }
 
     @media (max-width: 768px) {
@@ -131,7 +133,12 @@ export const Box3 = styled.div`
     font-size: small;
   }
 
-  button {
+  h3 {
+    font-family: "Baloo 2";
+    font-size: 1.1rem;
+  }
+
+  > button {
     width: 100%;
     border: 0;
     border-radius: 4px;
@@ -141,6 +148,11 @@ export const Box3 = styled.div`
     padding: 0.75rem;
     margin-top: 1rem;
     cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: ${(props) => props.theme.yellowDark};
+    }
   }
 `;
 
@@ -158,6 +170,7 @@ export const EmptyCartList = styled.div`
     > h2 {
       text-align: center;
       margin-top: 0.5rem;
+      font-family: "Baloo 2";
     }
 
     p {
